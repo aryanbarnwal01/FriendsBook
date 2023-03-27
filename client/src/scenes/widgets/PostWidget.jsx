@@ -35,7 +35,7 @@ const PostWidget = ({
   const primary = palette.primary.main;
 
   const patchLike = async () => {
-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+    const response = await fetch(`https://react-friendsbook.onrender.com/posts/${postId}/like`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -62,7 +62,7 @@ const PostWidget = ({
         <img
           width="100%"
           height="auto"
-          src={`http://localhost:3000/assets/${picturePath}`}
+          src={`https://react-friendsbook.onrender.com/assets/${picturePath}`}
           alt="post"
           style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
          />
