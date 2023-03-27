@@ -6,7 +6,7 @@ const UserImage = ({ image, size = "60px" }) => {
     <img style={{ objectFit: "cover", borderRadius: "50%" }}
     width={size}
     height={size}
-    alt="user" src={`http://localhost:3000/assets/${image}`} />
+    alt="user" src={`https://react-friendsbook.onrender.com/assets/${image}`} />
     
     </Box>
   );
