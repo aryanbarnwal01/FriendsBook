@@ -25,7 +25,7 @@
   },
   "scripts": {
 
-    "start": "HOST=https://friendsbooktm.netlify.app react-scripts start",
+    "start": "HOST=friendsbooktm.netlify.app PORT=3000 react-scripts start",
     "predeploy" : "npm run build",
     "deploy" : "npm run start",
     "build": "react-scripts build",
