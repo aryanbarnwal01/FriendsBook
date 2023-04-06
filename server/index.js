@@ -36,7 +36,6 @@ app.use(bodyParser.json({ limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, 'build')));
 
 app.use("/assets",express.static(path.join(__dirname,'public/assets')));
 
@@ -63,9 +62,6 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 const PORT = process.env.PORT || 6001;
 mongoose.set('strictQuery', true);
@@ -73,7 +69,7 @@ mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true,    
 }).then(() => {
-    app.listen(PORT, 'https://react-friendsbook.onrender.com' , () => console.log(`Server Port : ${PORT}`));
+    app.listen(PORT, () => console.log(`Server Port : ${PORT}`));
 }).catch((error) => console.log(`${error} did not connect`));
 
 
