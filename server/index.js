@@ -25,13 +25,16 @@ const app = express();
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginEmbedderPolicy({policy:"cross-origin"}));
+
+
+app.use((req, res, next) => {
+  res.removeHeader("Cross-Origin-Embedder-Policy");
+  next();
+});
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
-
-app.use(express.static(path.join(__dirname, 'build')));
-
 app.use("/assets",express.static(path.join(__dirname,'public/assets')));
 
 
@@ -56,11 +59,6 @@ app.use("/auth",authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
-
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 const PORT = process.env.PORT || 6001;
 mongoose.set('strictQuery', true);
