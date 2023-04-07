@@ -17,7 +17,7 @@ const AdvertWidget = () => {
         <Typography color={medium}>Create Ad</Typography>
       </FlexBetween>
       <img
-        src={"https://friendsbookserver.netlify.app/assets/info4.jpeg"}
+        src={"https://react-friendsbook.onrender.com/assets/info4.jpeg"}
         width="100%"
         height="auto"
         alt="advert"
